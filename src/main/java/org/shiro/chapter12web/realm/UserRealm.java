@@ -17,6 +17,9 @@ import org.shiro.chapter12web.credentials.MySimpleByteSource;
 import org.shiro.chapter6.entity.User;
 import org.shiro.chapter6.service.UserService;
 
+/**
+* test
+*/
 public class UserRealm extends AuthorizingRealm implements Serializable{ 
 
     private UserService userService;
