@@ -157,7 +157,7 @@ public class RedisManager {
 		}finally{
 			jedisPool.returnResource(jedis);
 		}
-		return dbSize;
+		return dbSize;   
 	}
 
 	/**
