@@ -8,7 +8,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisManager {
 	
-	private String host = "";
+	private String host = "123.101.0.89";
 	
 	private int port = 6379;
 	
