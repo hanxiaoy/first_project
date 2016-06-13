@@ -173,7 +173,7 @@ public class RedisManager {
 		}finally{
 			jedisPool.returnResource(jedis);
 		}
-		return keys;
+		return keys; 
 	}
 	
 	public String getHost() {
