@@ -18,7 +18,7 @@ import org.shiro.chapter6.entity.User;
 import org.shiro.chapter6.service.UserService;
 
 /**
-* test aaabb
+* test aaab
 */
 public class UserRealm extends AuthorizingRealm implements Serializable{ 
 
