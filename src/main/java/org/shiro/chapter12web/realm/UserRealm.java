@@ -18,8 +18,12 @@ import org.shiro.chapter6.entity.User;
 import org.shiro.chapter6.service.UserService;
 
 /**
-* test aaabb
-*/
+ * @author hanxy
+ * @date 2016年6月14日 
+ * @projectName : shiro
+ * @version 1.0
+ * @desc : userRealm
+ */
 public class UserRealm extends AuthorizingRealm implements Serializable{ 
 
     private UserService userService;
