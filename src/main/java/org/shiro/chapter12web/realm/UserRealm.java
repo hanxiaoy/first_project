@@ -13,7 +13,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.shiro.chapter12web.credentials.MySimpleByteSource;
+import org.apache.shiro.util.SimpleByteSource;
 import org.shiro.chapter6.entity.User;
 import org.shiro.chapter6.service.UserService;
 
@@ -37,13 +37,13 @@ public class UserRealm extends AuthorizingRealm implements Serializable{
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals ) {
-    	System.out.println("===========doGetAuthorizationInfo()");
+    	System.out.println("=====doGetAuthorizationInfo()");
         String username = (String)principals.getPrimaryPrincipal();
 
-        MySimpleByteSource authorizationInfo = new MySimpleByteSource();
+        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         authorizationInfo.setRoles(userService.findRoles(username));
         authorizationInfo.setStringPermissions(userService.findPermissions(username));
-
+        
         return authorizationInfo;
     }
 
@@ -55,6 +55,7 @@ public class UserRealm extends AuthorizingRealm implements Serializable{
         User user = userService.findByUsername(username);
 
         if(user == null) {
+        	System.out.println("没找到帐号");
         	error ="没找到帐号";
         	shiroLoginFailure = "没找到帐号_shiroLoginFailure";
             throw new UnknownAccountException("没找到帐号");//没找到帐号
@@ -62,6 +63,7 @@ public class UserRealm extends AuthorizingRealm implements Serializable{
 
         if(Boolean.TRUE.equals(user.getLocked())) {
         	error ="帐号锁定";
+        	System.out.println("帐号锁定");
         	shiroLoginFailure = "帐号锁定_shiroLoginFailure";
             throw new LockedAccountException("帐号锁定"); //帐号锁定
         }
@@ -73,6 +75,7 @@ public class UserRealm extends AuthorizingRealm implements Serializable{
                 ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
                 getName()  //realm name
         );
+        System.out.println("success");
         return authenticationInfo;
     }
 

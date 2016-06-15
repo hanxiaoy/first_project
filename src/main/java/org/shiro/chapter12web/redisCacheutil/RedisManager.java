@@ -8,7 +8,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisManager {
 	
-	private String host = "123.101.0.89";
+	private String host = "";
 	
 	private int port = 6379;
 	
@@ -18,7 +18,7 @@ public class RedisManager {
 	//timeout for jedis try to connect to redis server, not expire time! In milliseconds
 	private int timeout = 0;
 	
-	private String password = "abc123";
+	private String password = "";
 	
 	private static JedisPool jedisPool = null;
 	

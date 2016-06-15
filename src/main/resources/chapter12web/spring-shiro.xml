@@ -7,34 +7,34 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- 缓存管理器 使用redis实现 -->
-    <bean id="cacheManager" class="org.shiro.chapter12web.redisCacheutil.RedisCacheManager">
-        <property name="redisManager" ref="redisManager" />
-    </bean>
+<!--     <bean id="cacheManager" class="org.shiro.chapter12web.redisCacheutil.RedisCacheManager"> -->
+<!--         <property name="redisManager" ref="redisManager" /> -->
+<!--     </bean> -->
        
 	<!-- shiro redisManager -->
-	<bean id="redisManager" class="org.shiro.chapter12web.redisCacheutil.RedisManager">
+<!-- 	<bean id="redisManager" class="org.shiro.chapter12web.redisCacheutil.RedisManager"> -->
 	
-	    <property name="host" value="192.168.3.250"/>
-	    <property name="port" value="6379"/>
-	    <property name="expire" value="1800"/>
-	    <!-- optional properties: -->
-	    <property name="timeout" value="1000"/>
-	    <property name="password" value="Redis.qingfu2015**"/>
-	</bean>
+<!-- 	    <property name="host" value=""/> -->
+<!-- 	    <property name="port" value="6379"/> -->
+<!-- 	    <property name="expire" value="1800"/> -->
+<!-- 	    optional properties: -->
+<!-- 	    <property name="timeout" value="1000"/> -->
+<!-- 	    <property name="password" value=""/> -->
+<!-- 	</bean> -->
 	
 	
 	<!-- 凭证匹配器-->
-	<bean id="credentialsMatcher" class="org.shiro.chapter12web.credentials.RetryLimitHashedCredentialsMatcher">
-		<constructor-arg ref="cacheManager"/>
-		<property name="hashAlgorithmName" value="md5"/>
-		<property name="hashIterations" value="2"/>
-		<property name="storedCredentialsHexEncoded" value="true"/>
-	</bean>
+<!-- 	<bean id="credentialsMatcher" class="org.shiro.chapter12web.credentials.RetryLimitHashedCredentialsMatcher"> -->
+<!-- 		<constructor-arg ref="cacheManager"/> -->
+<!-- 		<property name="hashAlgorithmName" value="md5"/> -->
+<!-- 		<property name="hashIterations" value="2"/> -->
+<!-- 		<property name="storedCredentialsHexEncoded" value="true"/> -->
+<!-- 	</bean> -->
 	
 	<!-- Realm实现-->
 	<bean id="userRealm" class="org.shiro.chapter12web.realm.UserRealm">
 		<property name="userService" ref="userService"/>
-		<property name="credentialsMatcher" ref="credentialsMatcher"/>
+<!-- 		<property name="credentialsMatcher" ref="credentialsMatcher"/> -->
 		<property name="cachingEnabled" value="true"/>
 		<property name="authenticationCachingEnabled" value="true"/>
 		<property name="authenticationCacheName" value="authenticationCache"/>
@@ -56,13 +56,13 @@
 		<!-- 会话验证调度器-->
 		<bean id="sessionValidationScheduler"
 			class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
-			<property name="sessionValidationInterval" value="1800000"/>
+			<property name="sessionValidationInterval" value="18000000000"/>
 			<property name="sessionManager" ref="sessionManager"/>
 		</bean>
 
 		<!-- 会话管理器-->
 		<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-			<property name="globalSessionTimeout" value="1800000"/>
+			<property name="globalSessionTimeout" value="1800000000"/>
 			<property name="deleteInvalidSessions" value="true"/>
 			<property name="sessionValidationSchedulerEnabled" value="true"/>
 			<property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
@@ -75,7 +75,7 @@
 		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager" >
 			<property name="realm" ref="userRealm"></property>
 			<property name="sessionManager" ref="sessionManager"></property>
-			<property name="cacheManager" ref="cacheManager"></property>
+<!-- 			<property name="cacheManager" ref="cacheManager"></property> -->
 		</bean>
 		
 		<!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) -->
