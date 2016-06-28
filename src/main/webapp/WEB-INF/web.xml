@@ -12,14 +12,10 @@
         <param-name>shiroEnvironmentClass</param-name>
         <param-value>org.apache.shiro.web.env.IniWebEnvironment</param-value><!-- 默认先从/WEB-INF/shiro.ini，如果没有找classpath:shiro.ini -->
     </context-param>
-<!--     <context-param> -->
-<!--         <param-name>shiroConfigLocations</param-name> -->
-<!--         <param-value>classpath:chapter8/shiro.ini</param-value> -->
-<!--     </context-param> -->
     
     <context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:chapter12web/spring-beans.xml,classpath:chapter12web/spring-shiro.xml</param-value>
+		<param-value>classpath:chapter13/spring-shiro-web.xml,classpath:chapter13/spring-beans.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

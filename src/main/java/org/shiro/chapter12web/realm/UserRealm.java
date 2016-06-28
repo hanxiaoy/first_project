@@ -22,7 +22,7 @@ import org.shiro.chapter6.service.UserService;
  * @date 2016年6月14日 
  * @projectName : shiro
  * @version 1.0
- * @desc : userRealm
+ * @desc : userRealm bbb
  */
 public class UserRealm extends AuthorizingRealm implements Serializable{ 
 
