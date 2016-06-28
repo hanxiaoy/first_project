@@ -34,6 +34,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <h3>Roles you have:</h3>
 
+=====<br/>
+<shiro:hasAnyRoles name="admin">
+         <shiro:principal/>拥有角色admin
+</shiro:hasAnyRoles>
+======     
 <p>
     <shiro:hasRole name="admin">admin<br/></shiro:hasRole>
     <shiro:hasRole name="Officers">Bad Guys<br/></shiro:hasRole>
@@ -56,6 +61,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li>You may <shiro:lacksPermission name="user:${account.username}:edit"><b>NOT</b> </shiro:lacksPermission> edit the ${account.username} user!</li>
 </ul>
 
+
+拥有的权限：<br/>
+	<li><shiro:hasPermission name="user:create">拥有创建权限</shiro:hasPermission></li>
+	<li><shiro:hasPermission name="user:update">拥有修改权限</shiro:hasPermission></li>
 
 </body>
 </html>

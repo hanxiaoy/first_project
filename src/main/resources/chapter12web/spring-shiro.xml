@@ -7,20 +7,20 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- 缓存管理器 使用redis实现 -->
-<!--     <bean id="cacheManager" class="org.shiro.chapter12web.redisCacheutil.RedisCacheManager"> -->
-<!--         <property name="redisManager" ref="redisManager" /> -->
-<!--     </bean> -->
+    <bean id="cacheManager" class="org.shiro.chapter12web.redisCacheutil.RedisCacheManager">
+        <property name="redisManager" ref="redisManager" />
+    </bean>
        
 	<!-- shiro redisManager -->
-<!-- 	<bean id="redisManager" class="org.shiro.chapter12web.redisCacheutil.RedisManager"> -->
+	<bean id="redisManager" class="org.shiro.chapter12web.redisCacheutil.RedisManager">
 	
 <!-- 	    <property name="host" value=""/> -->
-<!-- 	    <property name="port" value="6379"/> -->
-<!-- 	    <property name="expire" value="1800"/> -->
+	    <property name="port" value="6379"/>
+	    <property name="expire" value="1800"/>
 <!-- 	    optional properties: -->
-<!-- 	    <property name="timeout" value="1000"/> -->
+	    <property name="timeout" value="1000"/>
 <!-- 	    <property name="password" value=""/> -->
-<!-- 	</bean> -->
+	</bean>
 	
 	
 	<!-- 凭证匹配器-->
@@ -75,7 +75,7 @@
 		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager" >
 			<property name="realm" ref="userRealm"></property>
 			<property name="sessionManager" ref="sessionManager"></property>
-<!-- 			<property name="cacheManager" ref="cacheManager"></property> -->
+			<property name="cacheManager" ref="cacheManager"></property>
 		</bean>
 		
 		<!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) -->
@@ -118,6 +118,7 @@
 					/page/index.jsp=anon
 					/page/unauthorized.jsp=anon
 					/page/login.jsp=authc
+					/page/index.jsp=user
 					/**=user
 				</value>
 			</property>

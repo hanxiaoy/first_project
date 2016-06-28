@@ -8,17 +8,19 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisManager {
 	
-	private String host = "";
+	private String host = "123.101.0.89";
+//	private String host = "192.168.3.250";
 	
 	private int port = 6379;
 	
 	// 0 - never expire (unit:second)
-	private int expire = 0;
+	private int expire = 180;
 	
 	//timeout for jedis try to connect to redis server, not expire time! In milliseconds
-	private int timeout = 0;
+	private int timeout = 1000;
 	
-	private String password = "";
+	private String password = "abc123";
+//	private String password = "Redis.qingfu2015**";
 	
 	private static JedisPool jedisPool = null;
 	
@@ -50,10 +52,13 @@ public class RedisManager {
 	public JedisPoolConfig getJedisPoolConfig(){
 		
 		JedisPoolConfig config = new JedisPoolConfig();
-		config.setMaxTotal(6);//设置最大连接数  
-        config.setMaxIdle(1000); //设置最大空闲数 
-        config.setMaxWaitMillis(3000);//设置超时时间  
+//		config.setMaxTotal(6);//设置最大连接数  
+//		config.setmax
+        config.setMaxIdle(10); //设置最大空闲数 
+        config.setMaxWait(30);
         config.setTestOnBorrow(true);
+        config.setMaxActive(50);
+        
         return config;
 	}
 	
@@ -78,7 +83,7 @@ public class RedisManager {
 		
 		RedisManager redis = new RedisManager();
 		redis.init();
-//		redis.set("a".getBytes(), "abc".getBytes());
+//		redis.set("a".getBytes(), "abc".getBytes(), 0);
 		System.out.println(new String(redis.get("a".getBytes())));
 	}
 	
