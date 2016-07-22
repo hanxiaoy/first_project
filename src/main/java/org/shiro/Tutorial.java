@@ -19,7 +19,7 @@ public class Tutorial {
 	    public static void main(String[] args) throws Exception{
 	        log.info("My First Apache Shiro Application");
 	        
-	        //1.  test 1
+	        //1.  test 2
 //	        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro-realm.ini");
 	        Factory<SecurityManager> factory2 = new IniSecurityManagerFactory("classpath:shiro-realm.ini");
 
