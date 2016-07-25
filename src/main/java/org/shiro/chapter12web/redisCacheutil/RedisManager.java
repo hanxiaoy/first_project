@@ -8,7 +8,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisManager {
 	
-	private String host = "123.101.0.89";
+	private String host = "";
 //	private String host = "192.168.3.250";
 	
 	private int port = 6379;
@@ -20,7 +20,7 @@ public class RedisManager {
 	private int timeout = 1000;
 	
 	private String password = "abc123";
-//	private String password = "Redis.qingfu2015**";
+//	private String password = "";
 	
 	private static JedisPool jedisPool = null;
 	
