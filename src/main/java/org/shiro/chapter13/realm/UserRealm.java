@@ -6,8 +6,8 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.shiro.chapter6.entity.User;
-import org.shiro.chapter6.service.UserService;
+import org.shiro.chapter13.entity.User;
+import org.shiro.chapter13.service.UserService;
 
 /**
  * Created by hanxy on 2016/7/26.
@@ -35,7 +35,7 @@ public class UserRealm  extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-
+        System.out.println("==========================doGetAuthenticationInfo() ====================================");
         String username = (String)token.getPrincipal();
 
         User user = userService.findByUsername(username);
@@ -52,7 +52,7 @@ public class UserRealm  extends AuthorizingRealm {
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getUsername(), //用户名
                 user.getPassword(), //密码
-                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
+//                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
                 getName()  //realm name
         );
         return authenticationInfo;

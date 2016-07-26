@@ -70,7 +70,7 @@ public class UserRealm  extends AuthorizingRealm implements Serializable {
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getUsername(), //用户名
                 user.getPassword(), //密码
-                MySimpleByteSource.bytes(user.getCredentialsSalt()),//salt=username+salt
+//                MySimpleByteSource.bytes(user.getCredentialsSalt()),//salt=username+salt
                 getName()  //realm name
         );
 

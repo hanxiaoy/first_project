@@ -26,6 +26,7 @@ public class DefaultExceptionHandler {
         ModelAndView mv = new ModelAndView();
         mv.addObject("exception", e);
         mv.setViewName("unauthorized");
+        e.printStackTrace();
         return mv;
     }
 
