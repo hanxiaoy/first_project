@@ -1,11 +1,13 @@
 package org.shiro.chapter13.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by hanxy on 2016/7/26.
  * projectName : first_project
  * description :
  */
-public class RolePermssion {
+public class RolePermssion  implements Serializable {
 
     private Long roleId;
     private Long permissionId;

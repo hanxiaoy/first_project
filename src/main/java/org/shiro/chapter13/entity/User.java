@@ -1,11 +1,13 @@
 package org.shiro.chapter13.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by hanxy on 2016/7/26.
  * projectName : first_project
  * description :
  */
-public class User {
+public class User  implements Serializable {
     private Long id;
     private String username;
     private String password;

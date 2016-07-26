@@ -1,11 +1,13 @@
 package org.shiro.chapter13.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by hanxy on 2016/7/26.
  * projectName : first_project
  * description :
  */
-public class Role {
+public class Role  implements Serializable {
     private Long id;
     private String role; //角色标识 程序中判断使用,如"admin"
     private String description; //角色描述,UI界面显示使用
