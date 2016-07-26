@@ -15,11 +15,21 @@
     
     <context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:chapter13/spring-shiro-web.xml,classpath:chapter13/spring-beans.xml</param-value>
+		<param-value>classpath:chapter13/spring-shiro.xml,classpath:chapter13/spring-beans.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>org.shiro.chapter7.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 
     <filter>
 		<filter-name>shiroFilter</filter-name>
@@ -38,15 +48,17 @@
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+<!--
         <async-supported>true</async-supported>
+-->
     </servlet>
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-	
-	
-	
+
+
+
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
