@@ -184,29 +184,42 @@
 		            <version>2.7</version>
 		        </plugin>
 			
+				<!--<plugin>-->
+					<!--<groupId>org.apache.tomcat.maven</groupId>-->
+					<!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+					<!--<version>2.1</version>-->
+					<!--<configuration>-->
+						<!--<path>/shiro</path>-->
+ 						<!--<port>8080</port>-->
+						<!--<uriEncoding>UTF-8</uriEncoding>-->
+						<!--<contextReloadable>true</contextReloadable>-->
+						<!--<update>true</update>-->
+						<!--<server>tomcat7</server>-->
+						<!--<username>admin</username>-->
+						<!--<password>admin</password>-->
+ 						<!--<attachArtifactClassifier>-->
+                            <!--default value is exec-war but you can customize-->
+                         <!--</attachArtifactClassifier>-->
+                        <!--<attachArtifactClassifierType>-->
+							<!--default value is jar-->
+                        <!--</attachArtifactClassifierType>-->
+							<!--<httpsPort>8443</httpsPort>-->
+							<!--<keystoreFile>D:/localhost.keystore</keystoreFile>-->
+							<!--<keystorePass>abc123</keystorePass>-->
+							<!--<protocol>org.apache.coyote.http11.Http11AprProtocol</protocol>-->
+					<!--</configuration>-->
+				<!--</plugin>-->
+
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.1</version>
+					<version>2.0</version>
 					<configuration>
 						<path>/shiro</path>
- 						<port>8080</port>
-						<uriEncoding>UTF-8</uriEncoding>
-						<contextReloadable>true</contextReloadable>
-						<update>true</update>
-						<server>tomcat7</server>
-						<username>admin</username>
-						<password>admin</password>
-<!-- 						<attachArtifactClassifier> -->
-<!--                            default value is exec-war but you can customize -->
-<!--                         </attachArtifactClassifier> -->
-                        <attachArtifactClassifierType>
-                             jar
-                        </attachArtifactClassifierType>
-							<httpsPort>8443</httpsPort>
-							<keystoreFile>E:/localhost.keystore</keystoreFile>
-							<keystorePass>abc123</keystorePass>
-							<protocol>org.apache.coyote.http11.Http11AprProtocol</protocol>
+						<contextFile>/shiro/context.xml</contextFile>
+						<httpsPort>8443</httpsPort>
+						<keystoreFile>D:/localhost.keystore</keystoreFile>
+						<keystorePass>abc123</keystorePass>
 					</configuration>
 				</plugin>
 
