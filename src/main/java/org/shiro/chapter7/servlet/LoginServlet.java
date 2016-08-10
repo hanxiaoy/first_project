@@ -21,7 +21,7 @@ import java.io.IOException;
  * <p>Date: 14-1-29
  * <p>Version: 1.0
  */
-@WebServlet(name = "loginServlet", urlPatterns = "/login")
+//@WebServlet(name = "loginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
 	Logger log = LoggerFactory.getLogger(this.getClass());
